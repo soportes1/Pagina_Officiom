@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'cursos',
+	'hostname' => '65.99.248.188',
+	'username' => 'erp_officium', //erp_officium
+	'password' => 'cRY7Pw7bEN',
+	'database' => 'erp_officium', //erp_officium
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
