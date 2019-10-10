@@ -1,5 +1,5 @@
     <!-- Info Contact-->
-    <div class="container-fluid" style="margin-top:50px;">
+    <div class="container-fluid ft" style="margin-top:50px;">
       <div class="row">
         <div class="col-1"></div>
         <div class="col-10" style="min-height:1px; max-height: 1px;background-color:#ccc;"></div>
@@ -33,8 +33,13 @@
           </ul>
         </div>
           <div class="col-12 col-md-6 foot" style="font-size:13px;">
-          <i class="far fa-registered"></i> Officium - Artículos de Oficina y Papelería. Todos los Derechos Reservador 2019.<br>
-          Diseño Web por: www.especialistasweb.com.mx
+            <ul>
+              <li>
+              <i class="far fa-registered"></i> Officium - Artículos de Oficina y Papelería. Todos los Derechos Reservador 2019.<br>
+              Diseño Web por: www.especialistasweb.com.mx</li>
+
+            </ul>
+
         </div>
 
 

@@ -5,9 +5,10 @@
       -webkit-box-shadow: 1px -6px 50px -11px rgba(0,0,0,0.75);
       -moz-box-shadow: 1px -6px 50px -11px rgba(0,0,0,0.75);
       box-shadow: 1px -6px 50px -11px rgba(0,0,0,0.75); ">
+
       <div class="container" style="padding-top:12px; padding-bottom:12px; overflow-x:hidden;">
       <div class="row">
-        <div class="col-12 col-md-6 col-lg-3" style="">
+        <div class="col-12 col-md-6 col-lg-3 headband">
           <div class="flgContainer">
             <div class="flg1">
               <i class="fas fa-lock"></i>
@@ -18,7 +19,7 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-3" style="">
+        <div class="col-12 col-md-6 col-lg-3 headband">
           <div class="flgContainer">
             <div class="flg1">
               <i style="font-size:34px; position:relative; left:-5px;" class="fas fa-hand-holding-usd"></i>
@@ -29,7 +30,7 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-3" style="">
+        <div class="col-12 col-md-6 col-lg-3 headband">
 
           <div class="flgContainer">
             <div class="flg1">
@@ -42,8 +43,7 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-3" style="">
-
+        <div class="col-12 col-md-6 col-lg-3 headband">
           <div class="flgContainer">
             <div class="flg1">
               <i class="far fa-clock"></i>
@@ -57,7 +57,7 @@
       </div>
     </div>
     </div>
-    <br><br>
+    <br>
     <!--slider categorias -->
     <?php $this->load->view('slider-categorias'); ?>
 
@@ -76,7 +76,10 @@
 
   </body>
   <!-- owl carousel-->
+
   <link rel="stylesheet" href="<?php echo base_url(); ?>/owl/owl.carousel.css">
-  <link rel="stylesheet" href="<?php echo base_url(); ?>/owl/owl.theme.default.min.css">
+  <!--<link rel="stylesheet" href="<?php echo base_url(); ?>/owl/owl.theme.default.min.css">-->
   <script src="<?php echo base_url(); ?>/owl/owl.carousel.min.js"></script>
+
+
   <?php $this->load->view('footer');?>

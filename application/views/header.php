@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>OffiumIX</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <!--js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -58,7 +58,7 @@
 
                     </ul>
                 </div>
-                <button class="navbar-toggler ml-2" type="button" data-toggle="collapse" data-target=".nav-content" aria-expanded="false" aria-label="Toggle navigation" style="position:absolute; right:50px; top:15px;">
+                <button class="navbar-toggler ml-2" type="button" data-toggle="collapse" data-target=".nav-content" aria-expanded="false" aria-label="Toggle navigation" style="position:absolute; right:20px; top:15px;">
                     <i class="fas fa-bars"></i>
                 </button>
        </div>
