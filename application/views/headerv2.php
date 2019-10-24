@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="<?php echo base_url();?>/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/af60b1ea7d.js" crossorigin="anonymous"></script>
+    <script data-search-pseudo-elements src="https://kit.fontawesome.com/af60b1ea7d.js" crossorigin="anonymous"></script>
     <script src="<?php echo base_url();?>/js/tools.js" crossorigin="anonymous"></script>
     <!-- css -->
     <link rel="stylesheet" href="<?php echo base_url();?>/css/bootstrap.min.css">
@@ -55,10 +55,7 @@
               </li>
               <div class="upperLine"></div>
               <li class="nav-item">
-                  <a class="nav-link" data-toggle="modal" data-target="#exampleModal" href="#">
-                    <i class="fas fa-shopping-cart"></i> <span style="font-size:16px" class="ctr">Carrito</span>
-                     <span id="ecounter" class="badge badge-pill badge-danger ecarCounter">0</span>
-                  </a>
+                  <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i> <span style="font-size:16px" class="ctr">Carrito</span></a>
               </li>
           </ul>
           </div>
@@ -72,27 +69,23 @@
       <div class="container-fluid" id="blueNav">
         <div class="row text-center" style="">
           <div class="col blueButton ccategory mc1">
-            <div class="categorial">
+            <div class="categorial" style="border:1px solid red; width:90%;">
               <i class="fas fa-list"></i> Categorías
-              <div class="categoryContainer" >
-                <div class="listCategory">
-                  <ul>
-                    <?php if(isset($categorias)){
-                      foreach ($categorias->result() as  $row) {
-                    ?>
-                      <li class="categoryName" onmouseover="shown('<?php echo $row->id;?>','<?php echo $row->nombre;?>')" ><?php echo $row->nombre;?><i class="fas fa-chevron-right catChev"></i></li>
-                    <?php
-                      }
-                    }
-                    ?>
+              <ul class="categoryContainerv2">
+                <li class="cntsub">1 <i class="fas fa-chevron-right"></i>
+                  <ul class="subCategoryContainer">
+                    <li class="cntsub">2</li>
+                    <li class="cntsub">2</li>
+                    <li class="cntsub">2 <i class="fas fa-chevron-right"></i>
+                      <ul class="typeProductContainer">
+                        <li class="cntsub">3</li>
+                        <li class="cntsub">3</li>
+                      </ul>
+                    </li>
                   </ul>
-                </div>
-                <div class="subCategory">
-                  <div class="category-tittle">Título de Categoría</div>
-                  <div class="inContainer">
-                  </div>
-                </div>
-              </div>
+                </li>
+
+              </ul>
             </div>
           </div>
           <div class="col blueButton mc1"><a href="<?php echo $this->config->item('base_url');?>/tienda/marcas"> <i class="fas fa-award"></i> Marcas </a></div>
