@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Offiumix</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template -->
+  <link href="css/coming-soon.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="overlay"></div>
+  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+    <source src="mp4/bg.mp4" type="video/mp4">
+  </video>
+
+  <div class="masthead">
+    <div class="masthead-bg"></div>
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class="col-12 my-auto text-center">
+          <div class="masthead-content py-5 py-md-0">
+            <img class="img-fluid logo mb-4" src="img/logo-officium.png" alt="logo officium" style="margin-bottom:10px;">
+            <br>
+            <h1>Próximamente</h1>
+            <p class="mb-3">
+              Nos estamos renovando para brindarle siempre lo mejor.
+              En breve podrá accesar a nuestro nuevo portal.<br>
+
+              <small>
+                <b>Contáctenos</b><br>
+                7258-6504 / 7258-6510<br>
+                7258-65-15 / 7258-6520<br>
+
+              Calle 19 No. 48, Ampliación Progreso Nacional, 07650 Ciudad de México, CDMX
+
+
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/coming-soon.min.js"></script>
+
+  <!-- Modal -->
+<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="color2">Deje sus datos y un asesor se comunicará directamente con usted:</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12 col-sm-12">
+            <form id="form1" method="POST" action="enviar_email3.php">
+              <input class="membresia" id="membresia" type="hidden" plceholder="Nombre" value="" name="membresia">
+              <div class="form-group">
+                <label class="sr-only" for="nombre">Nombre</label>
+                <input class="form-control" id="nombre" type="text" placeholder="Nombre"
+                value="Nombre" name="nombre" onclick="javascript:this.value=''"/>
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="nombre">Empresa</label>
+                <input class="form-control" id="empresa" type="text" placeholder="Empresa"
+                value="Empresa" name="empresa" onclick="javascript:this.value=''"/>
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="apellidos">Apellidos</label>
+                <input class="form-control" id="apellidos" type="text" placeholder="Apellidos"
+                value="Apellidos" name="apellidos" onclick="javascript:this.value=''"/>
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="email">E-mail</label>
+                <input class="form-control" id="email" type="text" placeholder="E-mail"
+                value="E-mail" name="email" onclick="javascript:this.value=''"/>
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="telefono">Telefono</label>
+                <input class="form-control" id="telefono" type="text" placeholder="Telefono"
+                value="Teléfono" name="telefono" onclick="javascript:this.value=''"/>
+              </div>
+            <div class="checkbox">
+                <label>
+                <input type="checkbox" name="terminos" id="terminos"/> Acepto aviso de privacidad.
+                </label>
+                <!-- <label><a href="politicas-privacidad.html" target="_blank"><span class="glyphicon glyphicon-asterisk"></span> Leer aviso de privacidad.</a></label> -->
+            </div>
+            <!-- clave publica -->
+            <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
+
+            <center>
+              <button type="button" class="btn btn-danger text-white" onclick="javascript:EnviarEmail()" id="addLead">Solicitar Contacto</button>
+            </center>
+
+            <div class="txt-blanco" id="Ajax">
+
+            </div>
+          </form>
+          <script src="js/tools.js"></script>
+
+
+          <script>
+            $('#exampleModal2').on('show.bs.modal', function (event) {
+              var button = $(event.relatedTarget) // Button that triggered the modal
+              var recipient = button.data('whatever') // Extract info from data-* attributes
+              ///cambiamos los datos de membresia
+              $("#membresia").val(recipient);
+
+            })
+          </script>
+
+
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>
