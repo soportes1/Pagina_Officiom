@@ -388,7 +388,66 @@ text-align: left;
 /*fin estilos de pantalla interna de productos*/
 
 
-
+/*estilos de categoruias y subcategorias*/
+.ctg-parent{
+  margin-bottom: 12px;
+}
+
+.ctg-parent a:hover{
+  text-decoration: none;
+}
+
+.ctg-container{
+  padding-left:12px;
+  position: relative;
+  margin:0 auto;
+  float: none;
+  display: flex;
+  align-items: center;
+  min-width: 150px;
+  width: 90%;
+  height: 100px;
+  background-color:#EDEDED;
+  border-bottom: 3px solid #EDEDED;
+  font-weight: 700;
+}
+
+.ctg-container:hover{
+  background-color:#F3F3F3;
+  border-bottom: 3px solid #dc3545;
+}
+
+.subcategory_list{
+    -moz-column-count: 4 !important
+    -moz-column-gap: 20px !important;
+    -webkit-column-count: 4 !important;
+    -webkit-column-gap: 20px !important;
+    column-count: 4 !important;
+    column-gap: 20px !important;
+    -webkit-column-width: 150px;
+    -moz-column-width: 150px;
+    column-width: 150px;
+    padding-left: 12px;
+}
+
+.subcategory_list li{
+  list-style: none;
+  margin-bottom:12px;
+
+}
+
+.subcategory_list a{
+  text-align: left;
+  text-decoration: none;
+  color:#888;
+}
+
+.subcategory_list a:hover{
+  color:#555;
+}
+
+
+/*fin estilos categorias y subcategorias*/
 
 
 

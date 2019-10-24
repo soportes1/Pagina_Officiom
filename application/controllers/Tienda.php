@@ -16,7 +16,8 @@ class Tienda extends CI_Controller {
 		$this->load->view('home',$data);
 		$this->load->view('footer',$data);
 	}
-
+
+
 
 	public function test(){
 		$this->load->view('headerv2');
@@ -63,23 +64,62 @@ class Tienda extends CI_Controller {
 		$this->load->view('marcas',$data);
 		$this->load->view('footer',$data);
 	}
-
-	//metodo para el manejo de categorias
-	public function categorias(){
-		$categoria = $this->uri->segment(3);
-		///verificamos si existe el id de la categoria
-		$existe = $this->Productos->existe_categoria($categoria);
-		if($existe>0){
-			///mostramos todos las subcategorias de los productos
-
-
-		}else{
-			$this->erro('Categoría No Existente');
-		}
-	}//end of funcion
-
-
-
+
+
+	///mostramos todas las categorias
+	public function cat(){
+		$sql = "SELECT id,nombre,imagen FROM categorias WHERE activo = 1 ORDER BY id asc";
+		$data['categorias'] = $this->Productos->inquery($sql);
+		$top['position'] = 'Categorías';
+		$this->load->view('header',$data);
+		$this->load->view('breadcrumb',$top);
+		$this->load->view('categorias/mostrar_categorias',$data);
+		$this->load->view('footer',$data);
+	}
+
+	///metodo para mostrar subcategorias y tipo de productos
+	public function subct(){
+		$categoria = $this->uri->segment(3);
+		///verificamos si existe el id de la categoria
+		$existe = $this->Productos->existe_categoria($categoria);
+		if($existe>0){
+			///buscamos las subcategorias de la categoria
+			$sql = "SELECT id,nombre FROM sub_categoria WHERE id_padre=".$categoria." AND nivel=1";
+			$subCategorias = $this->Productos->inquery($sql);
+			$i=0;
+			$j=0;
+			foreach ($subCategorias->result() as $row) {
+				$subs[$i][0] = $row->id; ///id subcategoria
+				$subs[$i][1] = $row->nombre; ///nombre subcategoria
+				//obtenemos los tipos de productos
+				$query = "SELECT id,nombre FROM sub_categoria WHERE id_padre=".$subs[$i][0]." AND nivel=2";
+				$tipoProd = $this->Productos->inquery($query);
+				foreach($tipoProd->result_array() as $eval) {
+					$tep[$i][$j][0] = $eval['id']; ///id tipo de producto
+					$tep[$i][$j][1] = $eval['nombre'];
+					$j++;
+				}//end internal foreach
+				$j=0;
+				$i++;
+			}///end principal foreach
+			/////cargamos la vista
+			$data['subcategorias'] = $subs;
+			$data['tep'] = $tep;
+			$sql = "SELECT id,nombre,imagen FROM categorias WHERE activo = 1 ORDER BY id asc";
+			$data['categorias'] = $this->Productos->inquery($sql);
+			$top['position'] = 'Categorías';
+			$this->load->view('header',$data);
+			$this->load->view('breadcrumb',$top);
+			$this->load->view('categorias/mostrar_subcategorias',$data);
+			$this->load->view('footer',$data);
+
+		}else{
+			$this->erro('Categoría No Existente');
+		}
+	} //end of function
+
+
+
 	public function subcategorias(){
 		$tipoProducto = $this->uri->segment(3);
 		////obtenemos todos los productos del tipo de producto

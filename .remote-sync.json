@@ -1,0 +1,19 @@
+{
+  "logger": {
+    "title": "Remote Sync"
+  },
+  "transport": "ftp",
+  "uploadOnSave": true,
+  "useAtomicWrites": false,
+  "deleteLocal": true,
+  "hostname": "especialistaswebdemos.com.mx",
+  "port": "21",
+  "target": "public_html/officium/web",
+  "ignore": [
+    ".remote-sync.json",
+    ".git/**"
+  ],
+  "username": "soporte2@especialistaswebdemos.com.mx",
+  "password": "Prueba1",
+  "watch": []
+}
