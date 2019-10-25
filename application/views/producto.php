@@ -2,6 +2,7 @@
   if(isset($result)){
     foreach ($result->result() as $row){
       $img = $this->config->item('erp_url').substr($row->img,2);
+      $id = $row->pid;
 ?>
   <div class="container">
     <div class="row" style="margin-bottom:32px;">
@@ -10,20 +11,19 @@
       </div>
     </div>
 
-
     <div class="row">
       <div class="col-12 col-md-5">
         <div class="img-container text-center">
-          <img src="<?php echo $img;?>" class="img-fluid">
+          <a data-fancybox="gallery" href="<?php echo $img;?>">
+            <img src="<?php echo $img;?>" class="img-fluid">
+          </a>
+
         </div>
         <div class="item-thumnails-container">
           <img src="<?php echo $img;?>" class="img-thumbnail" style="width:80px; max-height:120px;">
           <img src="<?php echo $img;?>" class="img-thumbnail" style="width:80px; max-height:120px;">
           <img src="<?php echo $img;?>" class="img-thumbnail" style="width:80px; max-height:120px;">
-        </div>
-
-
-
+        </div>
       </div>
       <div class="col-12 col-md-4 item-descripcion">
         <b>Descripción:</b><br>
@@ -62,12 +62,13 @@
         <div class="item-small-legend" style=" line-height: 0.9;">IVA Incluido</div>
 
         <div class="btn-group" role="group" aria-label="Basic example" style=" margin-top:12px;">
-          <button class="btn btnEcar"><i class="fas fa-minus"></i></button>
-          <input type="text" class="form-control" style="text-align: center; width:160px; height:30px; font-size:13px;" value="1">
-          <button class="btn btnEcar"><i class="fas fa-plus"></i></button>
+          <button class="btn btnEcar" onclick="rest(<?php echo $id;?>);"><i class="fas fa-minus"></i></button>
+          <input name="eitem<?php echo $id ?>" id="eitem<?php echo $id ?>" type="text" class="form-control" style="text-align: center; width:160px; height:30px; font-size:13px;" value="1">
+          <button class="btn btnEcar" onclick="adder(<?php echo $id;?>);"><i class="fas fa-plus"></i></button>
         </div>
+
         <br>
-        <button type="button" class="btn btn-danger item-btn-ecar"><i class="fas fa-shopping-cart"></i> COMPRAR</button>
+        <button onclick="addtoCart(<?php echo $id;?>,<?php echo $price;?>,'<?php echo $row->producto;?>')" type="button" class="btn btn-danger item-btn-ecar"><i class="fas fa-shopping-cart"></i> COMPRAR</button>
         <div class="item-small-legend" style=" line-height: 0.9; margin-top:6px;">Piezas Disponibles: <?php echo $row->stock;?></div>
 
 

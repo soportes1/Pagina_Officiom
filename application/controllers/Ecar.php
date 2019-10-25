@@ -18,6 +18,7 @@ class Ecar extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Productos');
     $this->load->library('session');
+		$this->load->library('Apicall');
 
 	}
 
@@ -64,7 +65,6 @@ class Ecar extends CI_Controller {
 		}
 	}
 
-
 	///metodo que elimina un producto del carrito
 	public function remove_item(){
 		$id_producto = $_POST['id_producto'];
@@ -72,7 +72,8 @@ class Ecar extends CI_Controller {
 		unset($ecar[$id_producto]);
 		$this->session->set_userdata('ecar',serialize($ecar));
 	}
-
+
+	///metodfo para mostrar el modal del carrito de compras
 	public function floatDisplay(){
 		if($this->session->userdata('ecar')){
 			$ecar = unserialize($this->session->userdata('ecar'));
@@ -91,12 +92,51 @@ class Ecar extends CI_Controller {
 		echo 0;
 	}
 
-
+	////metodo que nos permite hacer el calculo del carrito de compras
+	public function	recalEcar(){
+	}
+
+	public function ecarResume(){
+		////obtenemos toda la informacion de productos del carrito de compras
+		if($this->session->userdata('ecar')){
+			$ecar = unserialize($this->session->userdata('ecar'));
+			if(isset($ecar) AND(count($ecar)>0)){
+				////obtenemos el resumen del pedido asi como el total
+				$data['productos'] = $ecar;
+				////
+				/////mostramos el resumen del carrito producto a producto
+				$sql = "SELECT id,nombre FROM categorias WHERE activo = 1 ORDER BY id asc";
+				$data['categorias'] = $this->Productos->inquery($sql);
+				$top['position'] = 'Resúmen de pedido';
+				$this->load->view('header',$data);
+				$this->load->view('breadcrumb',$top);
+				$this->load->view('ecar/ecar_resume',$data);
+				$this->load->view('footer');
+			}else{
+				$this->erro('Carrito de Compras Vacío');
+			}
+		}else{
+			$this->erro('Carrito de Compras Vacío');
+		}
+	}
+
   ////metodo para eliminar la session del carrito
   public function emptyCar(){
     $this->session->sess_destroy();
   }
 
 
-
+///metodo para desplegar mensajes de error
+	public function erro($mensaje){
+		$sql = "SELECT id,nombre FROM categorias WHERE activo = 1 ORDER BY id asc";
+		$data['categorias'] = $this->Productos->inquery($sql);
+		$top['position'] = 'Error';
+		$error['erro'] = $mensaje;
+		$this->load->view('header',$data);
+		$this->load->view('breadcrumb',$top);
+		$this->load->view('erro',$error);
+		$this->load->view('footer');
+	}
+
+
 }///end of class

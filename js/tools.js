@@ -1,9 +1,11 @@
 $(document).ready(function(){
     $(".categoryContainer").mouseleave(function(){
     $(".subCategory").hide();
+
   });
 });
-
+
+ecarCount();
 function shown(id,tittle){
   var tam=0;
   var tam2=2;
@@ -87,6 +89,7 @@ function addtoCart(id,price,name){
         ////recontamos los productos en el carrito de compras
         console.log('Item agregado al carrito');
         ////cambiamos la cantidad de productos en el carrito
+        ecarCount();
 
       }else{
         alert('Error al agregar el producto. Contacte a su asesor de ventas'+result);

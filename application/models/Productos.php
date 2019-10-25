@@ -111,14 +111,50 @@ class Productos extends CI_Model{
       default:
         $this->db->order_by("producto.id", "asc");
         break;
-    }
-
-
+    }
     /////agregar condicion para productos de gobierno
     $result = $this->db->get();
     return $result;
   }
-
+
+  ///metodo que nos permite encontrar los productos de una categoria
+  public function items_category_data($categoria,$filtro,$nivel,$inicio,$fin){
+
+    $this->db->select('*, producto.id AS pid,producto.imagen AS img, marcas.id AS mid, marcas.imagen AS marcaimg');
+    $this->db->from('producto');
+    $this->db->join('stock','stock.id_producto = producto.id');
+    $this->db->join('marcas','marcas.id = producto.id_marca');
+    if($nivel==1){ ///buscamos los productos de la categoria
+      $this->db->where('id_categoria',$categoria);
+    }else{ ///buscamos los productos del tipo de producto
+      $this->db->where('id_tipoproducto',$nivel);
+    }
+    switch ($filtro) {
+      case 'f0':
+        $this->db->order_by("producto.id", "asc");
+        break;
+
+      case 'f1':
+        $this->db->order_by("precio_principal", "asc");
+        break;
+
+      case 'f2':
+        $this->db->order_by("precio_principal", "desc");
+        break;
+
+      case 'f3':
+        $this->db->order_by("stock.stock", "desc");
+        break;
+
+      default:
+        $this->db->order_by("producto.id", "asc");
+        break;
+    }
+    /////##agregar condicion para productos de gobierno
+    $this->db->limit($fin,$inicio);
+    $result = $this->db->get();
+    return $result;
+  }////end of function
 
 
 }

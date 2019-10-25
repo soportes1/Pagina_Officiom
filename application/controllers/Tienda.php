@@ -17,13 +17,9 @@ class Tienda extends CI_Controller {
 		$this->load->view('footer',$data);
 	}
 
-
-
 	public function test(){
-		$this->load->view('headerv2');
-
-	}
-
+		$this->load->view('headerv2');
+	}
 
 	public function getMenu(){
 			$categoria = $_POST['id']; ///id de la categoria
@@ -117,9 +113,7 @@ class Tienda extends CI_Controller {
 			$this->erro('Categoría No Existente');
 		}
 	} //end of function
-
-
-
+
 	public function subcategorias(){
 		$tipoProducto = $this->uri->segment(3);
 		////obtenemos todos los productos del tipo de producto
@@ -131,8 +125,8 @@ class Tienda extends CI_Controller {
 		$this->load->view('tipo_producto',$data);
 		$this->load->view('footer',$data);
 	}
-
-
+
+	////metodo que muestra los productos de un tipo de producto
 	public function tipoproductos(){
 		$sql = "SELECT id,nombre FROM categorias WHERE activo = 1 ORDER BY id asc";
 		$data['categorias'] = $this->Productos->inquery($sql);
@@ -165,9 +159,71 @@ class Tienda extends CI_Controller {
 			$this->erro('Ruta No Valida');
 		}
 	}///end of function
+
+
+	///metodo que muestra los productos de una categoria, y almacena en un array
+	///las subcategorias y tipos de productos
+	public function productosCategoria(){
+		$categoria = $this->uri->segment(3);
+		////busqueda de categorias o tipos de productos con paginacion
+		if(isset($_GET['nivel']) AND($_GET['nivel']>0)){ ///obtenemos la busqueda
+			$nivel = $_GET['nivel']; //tipo de producto
+			$eproductos = $this->Productos->inquery("SELECT id FROM producto WHERE id_tipoproducto=".$categoria);
+		}else{
+			$nivel = 1; //categoria
+			$eproductos = $this->Productos->inquery("SELECT id FROM producto WHERE id_categoria=".$categoria);
+		}
+
+		///paginas
+		if(isset($_GET['page']) AND($_GET['page']!="") AND($_GET['page']>0)){ ///obtenemos la busqueda
+			$page = $_GET['page']; //tipo de producto
+		}else{
+			$page = 1;
+		}
+		$data['cproductos'] = $eproductos->num_rows();
+		$data['page'] = $page;
+		$bufferPages = $data['cproductos']/12; ///cantidad de paginas
+		$bufferPg = intval($bufferPages); ///parte entera
+		$bufferRest = $bufferPages - $bufferPg;
+		if($bufferRest>0){ ///se agrega una pagina
+			$bufferPg++;
+		}
+		$data['paginas'] = $bufferPg; //// cantidad de paginas finales
+		$inicio = (12*$page)-12;
+		$fin = (12*$page);
+
+		////filtro de ordenamiento
+		if(isset($_GET['filtro']) AND($_GET['filtro']!="")){ ///obtenemos la busqueda
+			$filtro = $_GET['filtro']; //tipo de producto
+		}else{
+			$filtro = 'f0';
+		}
+
+		///////verificmaos si tenemos productos
+		if(isset($categoria) AND($categoria!="")){
+			$existe = $this->Productos->existe_categoria($categoria);
+			if($existe===1){
+				////obtenemos todos los productos del modelo
+				$data['productos'] = $this->Productos->items_category_data($categoria,$filtro,$nivel,$inicio,$fin);
+				///mostramos los productos
+				$sql = "SELECT id,nombre,imagen FROM categorias WHERE activo = 1 ORDER BY id asc";
+				$data['categorias'] = $this->Productos->inquery($sql);
+				$top['position'] = 'Categorías';
+				$this->load->view('header',$data);
+				$this->load->view('breadcrumb',$top);
+				$this->load->view('categorias/mostrar_categorias_productos',$data);
+				$this->load->view('footer',$data);
+			}else{
+				$this->erro('Categoria No Existente');
+			}
+		}else{
+			$this->erro('Categoria No Existente');
+		}
+	}///end of function
+
+
 
-
-
+	///metodo que muestra un producto de manera detallada
 	public function producto(){
 		$producto = $this->uri->segment(3);
 		if(isset($producto) AND($producto!="")){
@@ -192,7 +248,21 @@ class Tienda extends CI_Controller {
 			$this->erro('Producto No Existente');
 		}
 	}
-
+
+	public function vista(){
+		$vista = $this->uri->segment(3);
+		$sql = "SELECT id,nombre,imagen FROM categorias WHERE activo = 1 ORDER BY id asc";
+		$data['categorias'] = $this->Productos->inquery($sql);
+		$top['position'] = ' ';
+		$this->load->view('header',$data);
+		$this->load->view('breadcrumb',$top);
+		$this->load->view($vista,$data);
+		$this->load->view('footer',$data);
+	}
+
+
+
+
 	///metodo para desplegar mensajes de error
 	public function erro($mensaje){
 		$sql = "SELECT id,nombre FROM categorias WHERE activo = 1 ORDER BY id asc";

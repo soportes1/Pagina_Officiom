@@ -33,23 +33,31 @@
 
       <div class="owl-carousel owl-categorias" style="width:80% !important; position:relative; margin:0 auto;">
         <div class="categorias-child" >
-          <img src="<?php echo base_url(); ?>/img/categorias/1.png">
-          <span style="color:#A09FA4; font-weight:bold;">Escolares y Oficina</span>
+          <a href="<?php echo base_url();?>/tienda/productosCategoria/1">
+            <img src="<?php echo base_url(); ?>/img/categorias/1.png">
+            <span style="color:#A09FA4; font-weight:bold;">Escolares y Oficina</span>
+          </a>
         </div>
 
         <div class="categorias-child">
-          <img src="<?php echo base_url(); ?>/img/categorias/2.png">
-          <span style="color:#A09FA4; font-weight:bold;">Papel</span>
+          <a href="<?php echo base_url();?>/tienda/productosCategoria/2">
+            <img src="<?php echo base_url(); ?>/img/categorias/2.png">
+            <span style="color:#A09FA4; font-weight:bold;">Papel</span>
+          </a>
         </div>
 
         <div class="categorias-child">
-          <img src="<?php echo base_url(); ?>/img/categorias/3.png">
-          <span style="color:#A09FA4; font-weight:bold;">Tintas y Toners</span>
+          <a href="<?php echo base_url();?>/tienda/productosCategoria/3">
+            <img src="<?php echo base_url(); ?>/img/categorias/3.png">
+            <span style="color:#A09FA4; font-weight:bold;">Tintas y Toners</span>
+          </a>
         </div>
 
         <div class="categorias-child">
-          <img src="<?php echo base_url(); ?>/img/categorias/4.png">
-          <span style="color:#A09FA4; font-weight:bold;">Tecnología</span>
+          <a href="<?php echo base_url();?>/tienda/productosCategoria/4">
+            <img src="<?php echo base_url(); ?>/img/categorias/4.png">
+            <span style="color:#A09FA4; font-weight:bold;">Tecnología</span>
+          </a>
         </div>
 
         <div class="categorias-child">

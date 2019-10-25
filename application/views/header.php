@@ -22,7 +22,9 @@
         <div class="container-fluid upper">
           <div class="navbar-collapse collapse nav-content order-2" id="logoPrincipal1">
               <ul class="nav navbar-nav">
-                <img src="<?php echo base_url();?>/img/logo-officium.png" class="img-fluid" style="width:210px; min-width:180px;">
+                <a href="<?php echo base_url();?>">
+                  <img src="<?php echo base_url();?>/img/logo-officium.png" class="img-fluid" style="width:210px; min-width:180px;">
+                </a>
               </ul>
           </div>
           <!-- Buscador central-->
@@ -31,7 +33,9 @@
                 <input type="text" class="searcher" placeholder="¿Qué estas buscando?">
                 <button class="btn"><i class="fas fa-search"></i></button>
               </div>
-              <img id="logoPrincipal2" src="<?php echo base_url();?>/img/logo-officium.png" class="img-fluid">
+              <a href="<?php echo base_url();?>">
+                <img id="logoPrincipal2" src="<?php echo base_url();?>/img/logo-officium.png" class="img-fluid">
+              </a>
           </ul>
 
           <div class="ml-auto navbar-collapse collapse nav-content order-3 order-md-3">
@@ -47,7 +51,7 @@
                 </div>
               </li>
               <li class="nav-item ctr">
-                  <a class="nav-link" href="#"><i class="fas fa-list"></i> <span style="font-size:16px;;">Categorías</span></a>
+                  <a class="nav-link" href="<?php echo base_url();?>tienda/cat"><i class="fas fa-list"></i> <span style="font-size:16px;;">Categorías</span></a>
               </li>
               <div class="upperLine"></div>
               <li class="nav-item ">

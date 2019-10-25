@@ -47,8 +47,6 @@
       <div class="row">
         <?php if(isset($productos) AND($productos->num_rows()>0)){
           foreach ($productos->result() as $row) {
-
-
         ?>
         <div class="col-md" style=" padding:0; margin-bottom:18px;">
           <div class="items-container inter" style="">

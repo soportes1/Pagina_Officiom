@@ -11,16 +11,16 @@
         <div class="col-12 col-md-2 foot" >
           <ul>
             <li class="ptittle">INFORMACIÓN</li>
-            <li>¿Quiénes Somos?</li>
-            <li>Aviso de Privacidad</li>
-            <li>Términos y Condiciones</li>
-            <li>Políticas de Envío</li>
+            <li><a class="text-reset" href="<?php echo base_url();?>tienda/vista/quienes_somos">¿Quiénes Somos?</a></li>
+            <li><a class="text-reset" href="<?php echo base_url();?>tienda/vista/aviso_privacidad">Aviso de Privacidad</a></li>
+            <li><a class="text-reset" href="<?php echo base_url();?>tienda/vista/terminos_condiciones">Términos y Condiciones</a></li>
+            <li><a class="text-reset" href="<?php echo base_url();?>tienda/vista/politicas_envio">Políticas de Envío</a></li>
           </ul>
         </div>
         <div class="col-12 col-md-2 foot" >
           <ul>
             <li class="ptittle">CONTÁCTANOS</li>
-            <li><i class="fab fa-whatsapp"></i> 7258-6504</li>
+            <li><a class="text-reset" href="<?php echo base_url();?>tienda/vista/contacto"><i class="fas fa-file-signature"></i> Contacto</a></li>
             <li><i class="fas fa-phone-alt"></i> 72586504 / 72586510</li>
             <li><i class="fas fa-phone-alt"></i> 72586515 / 72586520</li>
             <li><i class="fas fa-envelope"></i> info@officiumix.com</li>
@@ -30,13 +30,14 @@
           <ul>
             <li class="ptittle">SÍGUENOS EN</li>
             <li><i class="fab fa-facebook"></i> Facebook</li>
+            <li><i class="fab fa-whatsapp"></i> 7258-6504</li>
           </ul>
         </div>
           <div class="col-12 col-md-6 foot" style="font-size:13px;">
             <ul>
               <li>
               <i class="far fa-registered"></i> Officium - Artículos de Oficina y Papelería. Todos los Derechos Reservador 2019.<br>
-              Diseño Web por: www.especialistasweb.com.mx</li>
+              Calle 19 No. 48, Ampliación Progreso Nacional, 07650 Ciudad de México, CDMX.</li>
             </ul>
         </div>
       </div>
@@ -73,6 +74,7 @@
       </div>
     </div>
 
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
   </body>
 </html>
