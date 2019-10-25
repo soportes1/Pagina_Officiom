@@ -26,25 +26,29 @@ class Tienda extends CI_Controller {
 			$sql = "SELECT id,nombre FROM sub_categoria WHERE id_padre=".$categoria." AND nivel=1";
 			$result = $this->Productos->inquery($sql);
 			$i=0; ///subcategoria
-			$j=0;
-
+			////obtenemos las subcategorias
 			foreach ($result->result() as $row) {
-				$params[$i][$j][0] = $row->id; ////asignamos el id de subcategoria al arreglo
-				$params[$i][$j][1] = $row->nombre;  ////asignamos el nombre de subcategoria al arreglo
-				///obtenemos los tipos de productos
-				$query = "SELECT id,nombre FROM sub_categoria WHERE id_padre=".$row->id." AND nivel=2 LIMIT 5";
-				$rst = $this->Productos->inquery($query);
-				foreach ($rst->result() as $arow){
-					$j++;
-					$params[$i][$j][0] = $arow->id; ////asignamos el id de subcategoria al arreglo
-					$params[$i][$j][1] = $arow->nombre;  ////asignamos el nombre de subcategoria al arreglo
-
-				}
-				$j=0;
+				$params[$i][0] = $row->id; ////asignamos el id de subcategoria al arreglo
+				$params[$i][1] = $row->nombre;  ////asignamos el nombre de subcategoria al arreglo
 				$i++;
 			}
 			echo json_encode($params);
 	}
+
+		public function getMenu2(){
+			$categoria = $_POST['id']; ///id de la categoria
+			$sql = "SELECT id,nombre FROM sub_categoria WHERE id_padre=".$categoria." AND nivel=2";
+			$result = $this->Productos->inquery($sql);
+			$i=0; ///subcategoria
+			////obtenemos las subcategorias
+			foreach ($result->result() as $row) {
+				$params[$i][0] = $row->id; ////asignamos el id de subcategoria al arreglo
+				$params[$i][1] = $row->nombre;  ////asignamos el nombre de subcategoria al arreglo
+				$i++;
+			}
+			echo json_encode($params);
+	}
+
 
 	///metodo que llama a la vista de las marcas
 	public function marcas(){

@@ -92,17 +92,10 @@
                   </ul>
                 </div>
                 <div class="subCategory">
-                  <ul id="subContainer">
-                  </ul>
+                  <div class="category-tittle">Título de Categoría</div>
+                  <div class="inContainer">
+                  </div>
                 </div>
-
-                <div class="subCategory2">
-                  <ul id="subContainer2">
-                    asgfsdg
-                  </ul>
-                </div>
-
-
               </div>
             </div>
           </div>

@@ -61,28 +61,38 @@
         </div>
 
         <div class="categorias-child">
-          <img src="<?php echo base_url(); ?>/img/categorias/5.png">
-          <span style="color:#A09FA4; font-weight:bold;">Accesorios</span>
+          <a href="<?php echo base_url();?>/tienda/productosCategoria/5">
+            <img src="<?php echo base_url(); ?>/img/categorias/5.png">
+            <span style="color:#A09FA4; font-weight:bold;">Accesorios</span>
+          </a>
         </div>
 
         <div class="categorias-child">
-          <img src="<?php echo base_url(); ?>/img/categorias/6.png">
-          <span style="color:#A09FA4; font-weight:bold;">Muebles</span>
+          <a href="<?php echo base_url();?>/tienda/productosCategoria/6">
+            <img src="<?php echo base_url(); ?>/img/categorias/6.png">
+            <span style="color:#A09FA4; font-weight:bold;">Muebles</span>
+          </a>
         </div>
 
         <div class="categorias-child">
-          <img src="<?php echo base_url(); ?>/img/categorias/7.png">
-          <span style="color:#A09FA4; font-weight:bold;">Tlapalería</span>
+          <a href="<?php echo base_url();?>/tienda/productosCategoria/7">
+            <img src="<?php echo base_url(); ?>/img/categorias/7.png">
+            <span style="color:#A09FA4; font-weight:bold;">Tlapalería</span>
+          </a>
         </div>
 
         <div class="categorias-child">
-          <img src="<?php echo base_url(); ?>/img/categorias/8.png">
-          <span style="color:#A09FA4; font-weight:bold;">Limpieza</span>
+          <a href="<?php echo base_url();?>/tienda/productosCategoria/8">
+            <img src="<?php echo base_url(); ?>/img/categorias/8.png">
+            <span style="color:#A09FA4; font-weight:bold;">Limpieza</span>
+          </a>
         </div>
 
         <div class="categorias-child">
-          <img src="<?php echo base_url(); ?>/img/categorias/9.png">
-          <span style="color:#A09FA4; font-weight:bold;">Cafetería</span>
+          <a href="<?php echo base_url();?>/tienda/productosCategoria/9">
+            <img src="<?php echo base_url(); ?>/img/categorias/9.png">
+            <span style="color:#A09FA4; font-weight:bold;">Cafetería</span>
+          </a>
         </div>
 
 

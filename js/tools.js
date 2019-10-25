@@ -8,13 +8,10 @@ $(document).ready(function(){
 ecarCount();
 function shown(id,tittle){
   var tam=0;
-  var tam2=2;
   var mem=0;
-  var mem2=0;
-  var mem3=0;
   var page="";
   //$(".inContainer").empty();
-  $(".category-tittle").html(tittle);
+  $("#subContainer").empty();
   var url = $("#baseUrl").val();
   url = url+'tienda/getMenu';
   $.post(url,
@@ -25,28 +22,35 @@ function shown(id,tittle){
       var erro = result;
       result = JSON.parse(result); ///convertimos JSON
       for(mem=0;mem<result.length;mem++){
-        page = page + '<div class="tpContainer">';
-        tam2 = result[mem].length;///obtenemos la cantidad de elementos de subcategoria
-        if(tam2>4){
-          tam2 = 4;
-          mem3 ='<a href="#" style="color:#B4B4B4" class="btn btn-link">Ver más...</a>';
-        }else{
-          mem3='';
-        }
-        for(mem2=0;mem2<tam2;mem2++){
-          if(mem2==0){
-            page = page + '<a href="#"><b>'+result[mem][mem2][1]+'</b></a>';
-          }else{
-            page = page + '<a href="#">'+result[mem][mem2][1]+'</a>';
-          }
-        }///end of second for
-        page = page+mem3;
-        page = page + '</div>';
-      }///end of first for
-      $(".inContainer").html(page); ///remove previus content and render new
+        var element = '<li class="categoryName" onmouseover="shown2('+result[mem][0]+');" >'+result[mem][1]+'<i class="fas fa-chevron-right catChev"></i></li>';
+        $("#subContainer").append(element);
+      }///end of first for
     });
-  $(".subCategory").show();
-}
+  $(".subCategory").show(); ///mostramos el nivel de subcategoria
+}////fin de muncion 1
+
+
+function shown2(id){
+  var tam=0;
+  var mem=0;
+  $("#subContainer2").empty(); ///limpiamos la
+  var url = $("#baseUrl").val();
+  url = url+'tienda/getMenu2';
+  $.post(url,
+    {
+      'id':id
+    },
+    function(result){/*
+      var erro = result;
+      result = JSON.parse(result); ///convertimos JSON
+      for(mem=0;mem<result.length;mem++){
+        var element = '<li class="categoryName" onmouseover="shown2('+result[mem][0]+');" >'+result[mem][1]+'<i class="fas fa-chevron-right catChev"></i></li>';
+        $("#subContainer").append(element);
+      }///end of first for*/
+    });
+  $(".subCategory2").show(); ///mostramos el nivel de subcategoria
+}
+
 
 /*#############funciones propias del carrito de compras*/
 
